@@ -45,10 +45,31 @@ public class is_bst {
             }
         }
 
-        boolean isBinarySearchTree() {
-          // Implement correct algorithm here
-          return true;
+       ArrayList<Integer> r=new ArrayList<>();
+        boolean solve() {
+        	if(tree.length>0)
+        		{iny(0);
+        	int n=r.get(0);
+          for(int i=1;i<r.size();i++)
+          {
+        	  if(n>r.get(i))
+        	  {
+        		  return false;
+        	  }
+        	  n=r.get(i);
+          }
+        		}
+        	return true;
         }
+        public void iny(int a)
+		{
+			if(a!=-1)
+			{
+				iny(tree[a].left);
+				r.add(tree[a].key);
+				iny(tree[a].right);
+			}
+		}
     }
 
     static public void main(String[] args) throws IOException {
